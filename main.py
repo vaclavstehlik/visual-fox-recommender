@@ -54,12 +54,12 @@ def main():
     rating_mtx = []
     alternative_names = data["rating"].keys()
     criteria_names = data["criteria"].keys()
-    criteria = [MAX for i in range(len(criteria_names))]
+    criteria_impact = [MAX for i in range(len(criteria_names))]
 
     for v_name, v_info in data["rating"].items():
         rating_mtx.append(list(v_info.values()))
 
-    data = Data(rating_mtx, criteria, weights, alternative_names, criteria_names)
+    data = Data(rating_mtx, criteria_impact, weights, alternative_names, criteria_names)
     dm = closeness.TOPSIS()
     dec = dm.decide(data)
 
