@@ -6,12 +6,7 @@ import sys
 from skcriteria import Data, MAX
 from skcriteria.madm import closeness
 
-
-class RankingResponse:
-    def __init__(self, alternative_name, rank):
-        self.alternative_name = alternative_name
-        self.rank = rank
-
+from models.ranking_response import RankingResponse
 
 CRITERIA_DEFAULT = {
     "volume": "0",
