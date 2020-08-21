@@ -39,3 +39,11 @@ def perform_mcdm():
     criteria = request.get_json()['user_criteria']
     response = jsonify(topsis.main(criteria))
     return response
+
+
+if __name__ == "__main__":
+    # Initialization
+    UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
+
+    # Run API
+    app.run(host="localhost", port=8000, debug=True)
