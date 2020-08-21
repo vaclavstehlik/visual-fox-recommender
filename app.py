@@ -18,6 +18,11 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
+@app.route("/")
+def hello():
+    return "Welcome to Recommender of VisualFox."
+
+
 @app.route('/dataset/analysis', methods=['POST'])
 def upload_file():
     file = request.files['dataset']
@@ -34,8 +39,3 @@ def perform_mcdm():
     criteria = request.get_json()['user_criteria']
     response = jsonify(topsis.main(criteria))
     return response
-
-
-if __name__ == "__main__":
-    # Initialization
-    UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
