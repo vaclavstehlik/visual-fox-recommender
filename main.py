@@ -1,7 +1,6 @@
 import json
 import os
 import pathlib
-import sys
 
 from skcriteria import Data, MAX
 from skcriteria.madm import closeness
@@ -37,9 +36,8 @@ CRITERIA_DEFAULT = {
 }
 
 
-def main():
-    user_criteria_raw = json.loads(sys.argv[1])
-    user_criteria = {k: criteria_preference_to_weight(v) for k, v in list(extract_criteria(user_criteria_raw))}
+def main(criteria_input):
+    user_criteria = {k: criteria_preference_to_weight(v) for k, v in list(extract_criteria(criteria_input))}
     criteria = update_criteria(user_criteria)
     weights = list(criteria.values())
 
@@ -59,7 +57,7 @@ def main():
     dec = dm.decide(data)
 
     ranking = export_ranking(alternative_names, dec.rank_.tolist())
-    print(json.dumps(ranking))
+    return ranking
 
 
 def criteria_preference_to_weight(value):

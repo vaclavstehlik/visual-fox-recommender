@@ -5,12 +5,8 @@ import numpy as np
 import pandas as pd
 
 
-def main():
-    # Open dataset
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--path", help="file path of the dataset")
-    args = parser.parse_args()
-    df = pd.read_csv(args.path)
+def main(path):
+    df = pd.read_csv(path)
 
     # Analyze dataset
     dataset_analysis = da.DatasetAnalysisResult()
@@ -39,7 +35,7 @@ def main():
         }
     }
 
-    print(json.dumps(response))
+    return response
 
 
 def remove_id_column(df):
