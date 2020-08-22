@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'visual-fox-recommender'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f759b88022b249958dedf0ddb7843644 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_eeb5b7c150c64fcb97add0f81c774f66 }}
